@@ -130,9 +130,9 @@ STARTUPCMD="cd $DESTPATH; python "$MAINSOURCE" &"
 if [ $SYSTEMD -eq 1 ]; then
     #Remove old way of starting rpisurv
     sudo sed -i /$MAINSOURCE/d /etc/rc.local
-    sudo cp -v rpisurv /usr/bin/
+    sudo cp -v $BASEPATH/rpisurv /usr/bin/
     sudo chmod 700 /usr/bin/rpisurv
-    sudo cp -v rpisurv.service /etc/systemd/system/
+    sudo cp -v $BASEPATH/rpisurv.service /etc/systemd/system/
     sudo chmod 644 /etc/systemd/system/rpisurv.service
     sudo systemctl daemon-reload
     sudo systemctl enable rpisurv
